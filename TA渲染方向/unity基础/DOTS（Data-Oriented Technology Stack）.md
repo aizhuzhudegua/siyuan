@@ -159,11 +159,11 @@ public struct MoveSpeed : IComponentData
 2. **匹配规则**：
 
     - Unity 遍历场景中所有 GameObject 上的 Authoring 组件。
-    - 对每个 Authoring 组件，查找对应的 `Baker<T>`​（`T`​ 必须精确匹配 Authoring 类型）。
+    - 对每个 Authoring 组件，查找对应的 `Baker<T>`​（`T` 必须精确匹配 Authoring 类型）。
 3. **执行顺序**：
 
     - 如果一个 GameObject 有多个 Authoring 组件，每个组件对应的 Baker 会按**不确定的顺序**执行。
-    - 若存在依赖关系，需通过 `DependsOn(authoring)`​ 显式声明。
+    - 若存在依赖关系，需通过 `DependsOn(authoring)` 显式声明。
 
 # 系统类型（S）
 

@@ -99,15 +99,15 @@ GameInput中激活
 
 注意PlayerInputActions对象需要手动释放
 
-虽然理论上对象销毁后事件监听器应该被清理，但由于 Unity 的 Input System 的特殊性（涉及非托管资源和全局状态），显式调用 `Dispose()`​ 是必要的。这是一种良好的编程习惯，可以避免资源泄漏和潜在的运行时错误。
+虽然理论上对象销毁后事件监听器应该被清理，但由于 Unity 的 Input System 的特殊性（涉及非托管资源和全局状态），显式调用 `Dispose()` 是必要的。这是一种良好的编程习惯，可以避免资源泄漏和潜在的运行时错误。
 
-如果不调用 `Dispose()`​，可能会导致：
+如果不调用 `Dispose()`，可能会导致：
 
 - 资源泄漏。
 - 旧的事件监听器被触发。
 - 输入系统状态不一致。
 
-因此，**始终在** **​`OnDestroy`​**​ **中调用** **​`Dispose()`​** ​ 是推荐的做法。
+因此，**始终在** **​`OnDestroy`​**​ **中调用** **​`Dispose()`​**  是推荐的做法。
 
 ```csharp
 private void OnDestroy()
@@ -240,17 +240,25 @@ private IEnumerator HandleFryTimer()
 
 ![image](assets/image-20250225165050-b34s4mg.png)
 
-# 避免预制件过多的方法
+# 避免预制件过多的方法（Template）
 
 用一个制作好的Template进行复制
 
 ![image](assets/image-20250225203607-hk8ubqv.png)
 
+复制对象
+
+```c#
+[SerializeField] private Transform iconTemplate;
+...
+Transform iconTransform = Instantiate(iconTemplate,transform);
+```
+
 # 音乐的优先级
 
 ![image](assets/image-20250227171233-66e0pry.png)
 
-# 初识TextMeshProUGUI（所在库TMPro）
+# <span id="20250227171307-hgumo6y" style="display: none;"></span>初识TextMeshProUGUI（所在库TMPro）
 
 ![image](assets/image-20250302143103-ysx2kpc.png)
 
@@ -262,7 +270,7 @@ private IEnumerator HandleFryTimer()
 
 ![image](assets/image-20250302143550-4xxad5y.png)
 
-# 场景切换 SceneManagement
+# <span id="20250302164606-vqhhwov" style="display: none;"></span>场景切换 SceneManagement
 
 using UnityEngine.SceneManagement
 
@@ -274,17 +282,19 @@ using UnityEngine.SceneManagement
 
 ![image](assets/image-20250302184316-nl418ne.png)
 
-# 场景间通信的方式
+# <span id="20250302184643-1o4qims" style="display: none;"></span>场景间通信的方式
 
 申明静态类
 
-public static class Loader
+```public
+public static class Loader{ ... }
+```
 
-在两个场景之间加入一个loader场景
+在两个场景之间加入一个Loader场景，场景A调用Load进入Loader场景
 
 ![image](assets/image-20250302192713-s2pjf7u.png)
 
-Loader场景的第一帧加载目标场景
+Loader场景的第一帧加载目标场景，由MonoBehaviour.Start调用
 
 ![image](assets/image-20250302192801-vqb0sqz.png)
 
@@ -429,3 +439,5 @@ closeButton.onClick.AddListener(() =>
             onCloseButtonAction();
 });
 ```
+
+‍

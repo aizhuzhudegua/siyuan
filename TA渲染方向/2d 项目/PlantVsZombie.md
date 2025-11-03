@@ -128,6 +128,10 @@ dark.activeSelf
 
 点击击中了格子，射线被格子挡住
 
+### 启动时运行Editor脚本代码
+
+![image](assets/image-20250308103821-oyi3unj.png)
+
 ## 解决方法
 
 设置阳光的位置，使阳光更接近摄像机
@@ -137,10 +141,6 @@ dark.activeSelf
 # 使用excel设计关卡
 
 ![image](assets/image-20250308095016-bg564xb.png)
-
-## 启动时运行Editor脚本代码
-
-![image](assets/image-20250308103821-oyi3unj.png)
 
 ## 读取xlsl并保存为SO
 
@@ -263,7 +263,7 @@ OnSliderValueChange(curProgress);
 operation.allowSceneActivation = true;
 ```
 
-# [实现自动排布并且父物体适应子物体尺寸](TA渲染方向/unity基础/UI.md#20250321195159-njxha0m)
+# [实现自动排布并且父物体适应子物体尺寸](../unity基础/UI.md#20250321195159-njxha0m)
 
 # [Json存储](PlantVsZombie/Json存储.md)
 

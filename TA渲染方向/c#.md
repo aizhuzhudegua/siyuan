@@ -238,7 +238,7 @@ Console.WriteLine("123123"  + 1 + true);
 
 ## as和()转型
 
-- ​`as`​ 关键字：如果转换失败，结果将是 `null`​，而不会抛出异常。
+- ​`as`​ 关键字：如果转换失败，结果将是 `null`，而不会抛出异常。
 
   转换时先检查类型，类型不正确无法通过编译
 
@@ -257,7 +257,7 @@ Console.WriteLine("123123"  + 1 + true);
       Debug.Log("Son as BaseTemp");
   }
   ```
-- ​`()`​ 转型：如果对象无法转换为指定类型，则会抛出 `InvalidCastException`​ 异常。
+- ​`()`​ 转型：如果对象无法转换为指定类型，则会抛出 `InvalidCastException` 异常。
 
 ## is
 
@@ -482,7 +482,7 @@ EventHandler
 
 ![image](assets/image-20250221143933-4dk8vhx.png)
 
-# 数组
+# 数组 
 
 ‍
 
@@ -524,7 +524,7 @@ array.GetLength(0) // 获得某一维的长度
 
 ## virtual关键字
 
-父类的方法没有被声明为`virtual`​，即使子类中有同名的方法，该方法也不会被重写，而是会被隐藏，此时通过父类的引用调用该方法时，会调用父类的方法
+父类的方法没有被声明为`virtual`，即使子类中有同名的方法，该方法也不会被重写，而是会被隐藏，此时通过父类的引用调用该方法时，会调用父类的方法
 
 ## 隐式转换
 
@@ -803,3 +803,70 @@ Debug.Log(stringBuilder);
         streamReader.Close();
     }
 ```
+
+# Directory
+
+创建/删除/存在 
+
+```c#
+void TestDirectory()
+    {
+        string strDir = @"E:\\code\\DirTest";
+
+       
+        if (Directory.Exists(strDir))
+        {
+            Directory.Delete(strDir);
+        }
+        else
+        {
+            // 创建文件夹
+            Directory.CreateDirectory(strDir);
+
+        }
+    }
+```
+
+## 移动文件夹
+
+```c#
+Directory.Move(@"E:\\code\\test", @"E:\\code\\DirTest\\test");
+```
+
+## 递归删除子文件夹
+
+```c#
+Directory.Delete(strDir,true);
+```
+
+# DirectoryInfo
+
+```c#
+void TestDireactoryInfo()
+{
+	DirectoryInfo directoryInfo = new DirectoryInfo(@"E:\\code\\DirTest1");
+	directoryInfo.Create();
+	directoryInfo.CreateSubdirectory("abc");
+	directoryInfo.Delete(true);
+}
+```
+
+## 枚举子目录
+
+```c#
+IEnumerable<DirectoryInfo> directoryInfos = directoryInfo.EnumerateDirectories();
+foreach (var item in directoryInfos)
+{
+	Debug.Log(item);
+}
+```
+
+# 删除.meta
+
+![image](assets/image-20250524170251-hi0u1ty.png)
+
+# new 关键字
+
+new关键字还可以覆盖继承关系中已有的成员属性
+
+![image](assets/image-20250601212454-n4xil39.png)

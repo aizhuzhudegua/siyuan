@@ -1,6 +1,8 @@
 # unity
 
-[TOC]
+# Mono
+
+mono是一个.netFramework的CLR，实现C#的跨平台
 
 # unity的架构
 
@@ -42,7 +44,7 @@
 - gameobject中选中camera然后 algin with view，可使scene和game视角一致
 - edit中 lockViewToSelected
 - ctrl+移动 增量移动
-- v 顶点对齐
+- v 顶点对齐，吸附
 - ![image-20241017203052864](assets/image-20241017203052864-20250209173613-gdlpb7l.png)
 
 # 常用设置
@@ -125,7 +127,7 @@ int childCount = this.transform.childCount;
 
 ## 设置父级
 
-![image-20241006162830080](assets/image-20241006162830080-20250209173613-o5rwxf2.png)​
+![image-20241006162830080](assets/image-20241006162830080-20250209173613-o5rwxf2.png)
 
 ## 从根开始查找
 
@@ -684,7 +686,7 @@ void ChangeColor()
 }
 ```
 
-## 定时器
+## 定时器Invoke
 
 - 反射机制实现的
 - **事件函数的执行是一个大循环，任何的事件调度都塞进 **​***脚本生命周期大循环***​ ** ，在合适的时间发生调度**
@@ -890,6 +892,10 @@ prefab发生修改，实例也会同步的发生修改
 
 ![image-20241007160711943](assets/image-20241007160711943-20250209173613-dcxqkil.png)
 
+# 预制变体
+
+相当于重写，会继承基础预制体的属性，同时保留自身的修改
+
 # 动态创建实例
 
 ![image-20241007161449629](assets/image-20241007161449629-20250209173613-3yeggo8.png)
@@ -943,6 +949,8 @@ void TestFire()
 ![image-20241017145815156](assets/image-20241017145815156-20250209173613-rfy0hz9.png)
 
 # 粒子系统
+
+![image](assets/image-20250604193227-e1bgf2b.png)
 
 ## 基础参数
 
@@ -1282,7 +1290,15 @@ angle是单边的
 
 ## 动画事件
 
+### 简单动画事件
+
 ![image-20241020203325529](assets/image-20241020203325529-20250209173613-t4er086.png)
+
+### Animation Controller的动画事件
+
+需要挂脚本
+
+![image](assets/image-20250605102825-oodfo8s.png)
 
 ## 播放模式
 
@@ -1353,3 +1369,7 @@ ublic class CameraController : MonoBehaviour
 ## 方法二：
 
 将相机作为玩家的子节点
+
+# FixUpdate帧率设置
+
+![image](assets/image-20250604102645-7e5srp2.png)
